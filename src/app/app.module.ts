@@ -24,7 +24,7 @@ import { DonateComponent } from './donate/donate.component';
     FlexLayoutModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+		FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
