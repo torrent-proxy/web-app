@@ -1,6 +1,6 @@
 import {Injectable, NgModule} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CONFIG } from "./Config";
+import { CONFIG } from "./config";
 
 @NgModule({
   imports: [HttpClient],
