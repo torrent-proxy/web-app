@@ -12,6 +12,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { DonateComponent } from './donate/donate.component';
 import { HttpClientModule } from "@angular/common/http";
 
+import { RestClientService } from "./rest-client.service";
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +29,9 @@ import { HttpClientModule } from "@angular/common/http";
 		FlexLayoutModule,
     BrowserModule,
     AppRoutingModule,
-		FormsModule,
+		FormsModule
   ],
-  providers: [],
+  providers: [RestClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
