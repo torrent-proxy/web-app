@@ -22,14 +22,14 @@ import { RestClientService } from "./rest-client.service";
     TorrentComponent,
     FooterComponent,
     AboutUsComponent,
-    DonateComponent
+    DonateComponent,
   ],
   imports: [
 		HttpClientModule,
 		FlexLayoutModule,
     BrowserModule,
     AppRoutingModule,
-		FormsModule
+		FormsModule,
   ],
   providers: [RestClientService],
   bootstrap: [AppComponent]
