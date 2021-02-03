@@ -7,12 +7,14 @@ import SearchResults from "../search-results/search-results.component";
 const App: React.FunctionComponent = () => {
   const onDownloadButtonClick = () => {};
   const onDownloadButtonHover = () => {};
+  const onSearchBoxChange = () => {};
 
   return (
     <React.Fragment>
       <Header />
-      <SearchBox />
-      <SearchResults />
+      <SearchBox
+        onSearchBoxChange={onSearchBoxChange}
+      />
       <DownloadButton
         onDownloadButtonClick={onDownloadButtonClick}
         onDownloadButtonHover={onDownloadButtonHover}

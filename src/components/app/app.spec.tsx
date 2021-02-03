@@ -1,29 +1,24 @@
 import {configure, shallow, mount} from "enzyme";
 import * as Adapter from "enzyme-adapter-react-16";
 import * as React from "react";
+import SearchBox from "../search-box/search-box.component";
+import SearchResults from "../search-results/search-results.component";
 import App from "./app.component";
-
-configure({
-  adapter: new Adapter(),
-});
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect'
 
 describe(`App`, () => {
   describe(`Search and result rendering`, () => {
-    it(`Поисковая строка пустая, результат рендеринга пустой`, () => {
-      const app = mount (
-        <App />
-      );
+    it(`Search box should be empty, search results should not be rendered`, () => {
+      render(<SearchBox onSearchBoxChange={() => {}} />);
 
-      const searchResults = app.find(`.table`);
-      expect(searchResults).toEqual(undefined);
-
-      const searchBox = app.find(`.search-box__input`);
-      console.log(searchBox.props());
-      expect(searchBox.props().value).toEqual(``);
+      const searchBox = screen.getByPlaceholderText('Enter torrent hash');
+      expect(searchBox).toHaveTextContent('');
     });
 
+    it(`При вводе текста и нажатии на enter рендерится результат`, () => {
+  });
 
-    it(`При вводе текста и нажатии на enter рендерится результат`, () => {});
     it(`При вводе текста и нажатии на кнопку поиска рендерится результат`, () => {});
     it(`При отсутствии результата рендерится сообщение об ошибке`, () => {});
     it(`Пока происходит поиск, рендерится throbber`, () => {});
@@ -31,6 +26,3 @@ describe(`App`, () => {
     it(``, () => {});
   });
 });
-
-// Посмотреть реакт-тест-лайбрари, может там будет удобнее работать с инпутами.
-// Посмотреть доку энзима на предмет проверки того, что приходит пустая нода (не существующая)
