@@ -1,5 +1,3 @@
-import {configure, shallow, mount} from "enzyme";
-import * as Adapter from "enzyme-adapter-react-16";
 import * as React from "react";
 import SearchBox from "../search-box/search-box.component";
 import SearchResults from "../search-results/search-results.component";
@@ -25,19 +23,19 @@ describe(`App`, () => {
 
     it(`Search button should be active if search query is valid`, () => {
       render(<SearchBox onSearchBoxChange={() => {}} />);
-      const searchBox = screen.getByPlaceholderText('Enter torrent hash');
+      const searchInput = screen.getByPlaceholderText('Enter torrent hash');
       const searchButton = screen.getByRole('button');
 
-      userEvent.type(searchBox, '69A9C60FC327DBF5659D5B74E221F9EDC489E033');
+      userEvent.type(searchInput, '69A9C60FC327DBF5659D5B74E221F9EDC489E033');
       expect(searchButton).not.toHaveAttribute('disabled');
   });
 
     it(`Search button should be disabled if search query is not valid`, () => {
       render(<SearchBox onSearchBoxChange={() => {}} />);
-      const searchBox = screen.getByPlaceholderText('Enter torrent hash');
+      const searchInput = screen.getByPlaceholderText('Enter torrent hash');
       const searchButton = screen.getByRole('button');
 
-      userEvent.type(searchBox, 'Hello');
+      userEvent.type(searchInput, 'Hello');
       expect(searchButton).toHaveAttribute('disabled');
     });
 
