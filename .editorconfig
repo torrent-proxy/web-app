@@ -10,6 +10,11 @@ tab_width = 2
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+[*.{ts,tsx}]
+ij_typescript_use_double_quotes = true
+
+[*.{js,jsx}]
+ij_javascript_use_double_quotes = true
 
 [*.md]
 max_line_length = 128
